@@ -1,7 +1,7 @@
 class Singleton {
     static _instance: Singleton;
     data: string;
-    constructor(d: string) {
+    private constructor(d: string) {
         this.data = d;
     }
 
@@ -22,3 +22,6 @@ const another = Singleton.getInstance("Agent Smith");
 console.log(another.data);
 
 console.log(theOne === another);
+
+// Should report an error because constructor is private: 
+const yetAnother = new Singleton("Quack!");
